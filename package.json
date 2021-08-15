@@ -65,13 +65,13 @@
     "jsonpath": "^1.1.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.8",
-    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.1-1",
-    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.1-12",
-    "@virtualpatterns/mablung-makefile-environment": "0.0.1-28",
+    "@babel/preset-env": "^7.15.0",
+    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.12",
+    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.12",
+    "@virtualpatterns/mablung-makefile-environment": "0.0.4",
     "ava": "^3.15.0"
   },
   "peerDependencies": {
-    "@virtualpatterns/mablung-makefile-environment": "0.0.1-28"
+    "@virtualpatterns/mablung-makefile-environment": "0.0.4"
   }
 }
