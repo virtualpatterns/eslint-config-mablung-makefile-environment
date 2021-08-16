@@ -16,10 +16,47 @@
   },
   "babel": {
     "presets": [
-      "@virtualpatterns/babel-preset-mablung-makefile"
+      [
+        "@virtualpatterns/babel-preset-mablung-makefile",
+        {
+          "header": {
+            "exclude": [
+              "source/test"
+            ]
+          }
+        }
+      ]
     ],
     "env": {
       "commonjs": {
+        "plugins": [
+          [
+            "@virtualpatterns/babel-plugin-mablung-replace-identifier",
+            {
+              "rule": [
+                {
+                  "searchFor": "__filePath",
+                  "replaceWith": "__filename"
+                },
+                {
+                  "searchFor": "__require",
+                  "replaceWith": "require"
+                }
+              ]
+            }
+          ],
+          [
+            "@virtualpatterns/babel-plugin-mablung-replace-string-literal",
+            {
+              "rule": [
+                {
+                  "searchFor": "^(\\.{1,2}\\/.*?)\\.js$",
+                  "replaceWith": "$1.cjs"
+                }
+              ]
+            }
+          ]
+        ],
         "presets": [
           [
             "@babel/preset-env",
@@ -27,6 +64,54 @@
               "targets": {
                 "node": "current"
               }
+            }
+          ]
+        ]
+      },
+      "esmodule": {
+        "plugins": [
+          "@babel/plugin-syntax-import-meta",
+          [
+            "@virtualpatterns/babel-plugin-mablung-replace-identifier",
+            {
+              "rule": [
+                {
+                  "searchFor": "__filePath",
+                  "replaceWith": "__importIdentifier.fileURLToPath(import.meta.url)",
+                  "parserOption": {
+                    "plugins": [
+                      "importMeta"
+                    ],
+                    "sourceType": "module"
+                  },
+                  "addImport": [
+                    {
+                      "type": "default",
+                      "source": "url",
+                      "option": {
+                        "nameHint": "URL"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "searchFor": "__require",
+                  "replaceWith": "__importIdentifier(import.meta.url)",
+                  "parserOption": {
+                    "plugins": [
+                      "importMeta"
+                    ],
+                    "sourceType": "module"
+                  },
+                  "addImport": [
+                    {
+                      "type": "named",
+                      "name": "createRequire",
+                      "source": "module"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         ]
@@ -43,7 +128,11 @@
   },
   "description": "TBD",
   "eslintConfig": {
-    "extends": "@virtualpatterns/eslint-config-mablung-makefile"
+    "extends": "@virtualpatterns/eslint-config-mablung-makefile",
+    "globals": {
+      "__filePath": "readonly",
+      "__require": "readonly"
+    }
   },
   "exports": {
     ".": "./release/index.cjs",
@@ -60,18 +149,19 @@
   },
   "type": "module",
   "version": "0.0.1-2",
-  "dependencies": {
-    "@pwn/is": "^1.0.2",
-    "jsonpath": "^1.1.1"
-  },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.15.0",
-    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.12",
-    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.12",
-    "@virtualpatterns/mablung-makefile-environment": "0.0.4",
-    "ava": "^3.15.0"
-  },
-  "peerDependencies": {
-    "@virtualpatterns/mablung-makefile-environment": "0.0.4"
+    "@virtualpatterns/babel-plugin-mablung-replace-identifier": "0.0.5",
+    "@virtualpatterns/babel-plugin-mablung-replace-string-literal": "0.0.4",
+    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.13",
+    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.13",
+    "@virtualpatterns/mablung-check-dependency": "0.0.7",
+    "@virtualpatterns/mablung-makefile": "0.0.23",
+    "@virtualpatterns/mablung-makefile-environment": "0.0.5",
+    "@virtualpatterns/mablung-source-map-support": "0.0.11",
+    "ava": "^3.15.0",
+    "eslint": "^7.32.0"
   }
 }
