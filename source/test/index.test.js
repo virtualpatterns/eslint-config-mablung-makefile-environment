@@ -7,7 +7,7 @@ Test('__filePath', async (test) => {
 
   let code = 'const FilePath = __filePath // eslint-disable-line no-unused-vars'
   let option = {
-    'extends': Require.resolve('../index.cjs')
+    'extends': Require.resolve('@virtualpatterns/eslint-config-mablung-makefile-environment')
   }
 
   let lint = new Lint({ 'baseConfig': option })
@@ -22,7 +22,7 @@ Test('__require', async (test) => {
 
   let code = 'const Require = __require // eslint-disable-line no-unused-vars'
   let option = {
-    'extends': Require.resolve('../index.cjs')
+    'extends': Require.resolve('@virtualpatterns/eslint-config-mablung-makefile-environment')
   }
 
   let lint = new Lint({ 'baseConfig': option })
