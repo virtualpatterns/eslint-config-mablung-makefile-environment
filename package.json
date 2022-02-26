@@ -19,19 +19,21 @@
   "type": "module",
   "version": "0.0.26-16",
   "dependencies": {
-    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.26-79"
+    "@virtualpatterns/eslint-config-mablung-makefile": "0.0.26-111",
+    "json5": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.0",
+    "@babel/core": "^7.17.5",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.16.11",
-    "@virtualpatterns/babel-plugin-mablung-replace-identifier": "0.0.26-38",
-    "@virtualpatterns/babel-plugin-mablung-replace-string-literal": "0.0.26-36",
-    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.26-80",
-    "@virtualpatterns/mablung-check-dependency": "0.0.26-58",
-    "@virtualpatterns/mablung-makefile-environment": "0.0.26-57",
+    "@virtualpatterns/babel-plugin-mablung-replace-identifier": "0.0.26-64",
+    "@virtualpatterns/babel-plugin-mablung-replace-string-literal": "0.0.26-62",
+    "@virtualpatterns/babel-preset-mablung-makefile": "0.0.26-116",
+    "@virtualpatterns/mablung-check-dependency": "0.0.26-95",
+    "@virtualpatterns/mablung-makefile-environment": "0.0.26-64",
     "ava": "^4.0.1",
-    "eslint": "^8.8.0",
-    "fs-extra": "^10.0.0"
+    "eslint": "^8.10.0",
+    "fs-extra": "^10.0.1",
+    "shx": "^0.3.4"
   }
 }
