@@ -17,7 +17,7 @@
     "url": "https://github.com/virtualpatterns/eslint-config-mablung-makefile-environment"
   },
   "type": "module",
-  "version": "0.0.26-22",
+  "version": "0.0.26-23",
   "dependencies": {
     "@virtualpatterns/eslint-config-mablung-makefile": "0.0.26-127",
     "json5": "^2.2.0"
