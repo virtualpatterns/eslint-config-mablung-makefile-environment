@@ -1,9 +1,12 @@
 import { ESLint } from 'eslint'
+import Path from 'path'
 import Test from 'ava'
+
+const Resolve = __resolve
 
 const Lint = new ESLint({ 
   'baseConfig': { 
-    'extends': '@virtualpatterns/eslint-config-mablung-makefile-environment'
+    'extends': await Resolve('@virtualpatterns/eslint-config-mablung-makefile-environment')
   } 
 })
 
