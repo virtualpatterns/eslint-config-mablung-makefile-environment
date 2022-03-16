@@ -7,6 +7,7 @@ Test('default', async (test) => {
   let dependency = await Check()
 
   test.deepEqual(dependency.missing, {})
+  test.deepEqual(dependency.section, {})
   test.deepEqual(dependency.unused, [])
 
 })
