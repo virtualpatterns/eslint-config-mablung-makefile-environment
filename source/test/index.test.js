@@ -1,5 +1,4 @@
 import { ESLint } from 'eslint'
-import Path from 'path'
 import Test from 'ava'
 
 const Resolve = __resolve
